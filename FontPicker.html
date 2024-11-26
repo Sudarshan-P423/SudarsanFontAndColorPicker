@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="FontPicker.js"></script>
+    <title>Font And Colors Picker</title>
+</head>
+
+<body>
+    <h1 align="center">Font and Color Picker</h1>
+    <h1 contenteditable="true"></h1>
+    <div class="main">
+        <div class="txtcolor">
+            <h2 align="center">Text Colors</h2>
+        </div>
+        <div class="backcolor">
+            <h2 align="center">Background Colors</h2>
+        </div>
+        <div class="font">
+            <h2 align="center">Font styles</h2>
+        </div>
+    </div>
+</body>
+<script>
+    const main = document.querySelectorAll('.main')[0]
+    main.style.display = 'grid';
+    main.style.gridTemplateColumns = 'auto auto auto'
+    main.style.margin = '50px';
+    main.style.gridGap = '50px'
+
+    const h1 = document.querySelectorAll('h1')[1];
+    h1.style.width = '50%';
+    h1.style.height = '200px';
+    h1.style.border = '2px solid red';
+    h1.style.borderRadius = '10px';
+    h1.style.margin = 'auto'
+    h1.style.padding = '10px'
+    const txtBut = document.querySelectorAll('.txtcolor')[0];
+    txtBut.style.border = '2px solid';
+    txtBut.style.padding = '10px'
+    buttonCreator(txtBut);
+    const backBut = document.querySelectorAll('.backcolor')[0];
+    backBut.style.border = '2px solid';
+    backBut.style.padding = '10px'
+    buttonCreator(backBut);
+    const fontBut = document.querySelectorAll('.font')[0];
+    fontBut.style.border = '2px solid';
+    fontBut.style.padding = '10px'
+    buttonCreator(fontBut);
+    const fontButt = document.querySelectorAll('.font button');
+    const styles = [
+        "Arial, sans-serif",
+        "Verdana, sans-serif",
+        "Helvetica, sans-serif",
+        "Times New Roman, serif",
+        "Georgia, serif",
+        "Courier New, monospace",
+        "Lucida Console, monospace",
+        "Garamond, serif",
+        "Trebuchet MS, sans-serif",
+        "Brush Script MT, cursive"
+    ];
+    let k = 0;
+    for (let i of fontButt) {
+        fontStyles(i, styles[k]);
+        k++;
+    }
+    const but = document.querySelectorAll('.txtcolor button,.backcolor button');
+    const colors = [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown",
+        "black",
+        "grey",
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown",
+        "black",
+        "grey"
+    ];
+
+    let j = 0;
+    for (let i of but) {
+        txtColor(i, colors[j]);
+        j++;
+    }
+    const txtEvent = document.querySelectorAll('.txtcolor button');
+    for (let i of txtEvent) {
+        i.onclick = () => {
+            h1.style.color = i.style.background;
+        }
+    }
+    const backEvent = document.querySelectorAll('.backcolor button');
+    for (let i of backEvent) {
+        i.onclick = () => {
+            h1.style.background = i.style.background;
+        }
+    }
+    const fontEvent = document.querySelectorAll('.font button');
+    for (let i of fontEvent) {
+        i.onclick = () => {
+            h1.style.fontFamily = i.style.fontFamily;
+        }
+    }
+</script>
+
+</html>
